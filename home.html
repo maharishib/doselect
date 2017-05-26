@@ -1,6 +1,36 @@
-<div class="ng-scope layout-column">
+<div class="layout-column">
 
     <div flex="10" layout="row" layout-align="center center">
     	<md-button ng-click="addRoom()" class="md-primary md-raised">Add Room</md-button>
 	</div>
+	<md-content class="md-padding" layout="row" layout-wrap>
+    <div flex-xs="100" flex-gt-xs="33" flex-offset-xs="0" ng-repeat="i in rooms">
+      
+      <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch>
+        <md-card-title>
+          <md-card-title-text>
+            <span class="md-headline">Room No. {{i.num}}</span>
+            <span class="md-head">Todo List</span>
+          </md-card-title-text>
+        </md-card-title>
+        <md-card-content layout="row" layout-align="space-between">
+          <div class="md-media-xl card-media">
+          	<ul ng-show="i.todolist>0">
+				<li ng-repeat="n in i.todolist">
+					{{n}}
+				</li>		
+			</ul>
+			<p ng-show="i.todolist==0">No task in todo list.</p>
+          </div>
+		 <md-card-actions layout="row" layout-align="end end">
+          <md-button class="md-primary md-raised">EDIT TODO</md-button>
+        </md-card-actions>
+        </md-card-content>
+      </md-card>
+      <br />
+    </div>
+      
+     
+  </md-content>
+
 </div>
