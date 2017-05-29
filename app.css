@@ -1,0 +1,7 @@
+.doneicon{
+	cursor:pointer;
+	color:#ddd;
+}
+.doneicon:hover{
+	color:rgb(63,81,181);
+}

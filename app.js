@@ -5,13 +5,36 @@ roomApp.config(function($stateProvider) {
     url: '',
     templateUrl: 'home.html'
   }
+  var editState = {
+    name: 'edit',
+    url: '/edit/:id',
+    templateUrl: 'edit.html'
+  }
   $stateProvider.state(homeState);
+  $stateProvider.state(editState);
 });
  roomApp.config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
     .accentPalette('blue');
 });
+ roomApp.controller('EditCtrl',EditCtrl);
  roomApp.controller('AppCtrl', AppCtrl);
+ function EditCtrl($scope,$stateParams){
+  $scope.room = loadDetails($stateParams.id);
+
+  $scope.addTask = function(){
+    var task = $scope.task;
+    $scope.task="";
+    if(task){
+      $scope.room.todolist.push(task);
+      saveDetails($scope.room.num,$scope.room);
+    }
+  }
+  $scope.taskDone = function(index){
+    $scope.room.todolist.splice(index,1);
+    saveDetails($scope.room.num,$scope.room);
+  }
+ }
   function AppCtrl($scope) {
   	$scope.currentNavItem = 'home';
   	var totalrooms = totalRoom(); 
@@ -29,14 +52,16 @@ roomApp.config(function($stateProvider) {
     	myroom.todolist=new Array();
     	myroom.totaltask=0;
     	localStorage.setItem('totalRooms',roomnum);
-    	localStorage.setItem('room_'+roomnum,JSON.stringify(myroom));
+    	saveDetails(roomnum,myroom);
     	$scope.rooms.unshift(myroom);
     }
   };
+  function saveDetails(id,data){
+      localStorage.setItem('room_'+id,JSON.stringify(data));
+  }
   function loadDetails(id){
     	return JSON.parse(localStorage.getItem('room_'+id));
-
-    }
+  }
   function totalRoom(){
   	return localStorage.getItem('totalRooms');
   }
