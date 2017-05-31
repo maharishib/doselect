@@ -22,8 +22,10 @@ roomApp.config(function($stateProvider) {
  function EditCtrl($scope,$stateParams){
   $scope.room = loadDetails($stateParams.id);
   $scope.tasks= new Array();
+  $scope.show= new Array();
   for(var ij=0;ij<$scope.room.todolist.length;ij++){
-    $scope.tasks[ij] = $scope.room.todolist[ij];
+    $scope.tasks[ij] = $scope.room.todolist[ij];//this is done so that task changes when someone clicks on edit task button
+    $scope.show[ij] = false;
   }
 //add task to specific room
   $scope.addTask = function(){
@@ -34,9 +36,13 @@ roomApp.config(function($stateProvider) {
       saveDetails($scope.room.num,$scope.room);
     }
   }
+  //edit task
   $scope.editTask = function(index){
-    $scope.room.todolist[index] = $scope.tasks[index];
-    saveDetails($scope.room.num,$scope.room);  
+    if($scope.tasks[index]!=undefined){
+      $scope.show[index] = false;
+      $scope.room.todolist[index] = $scope.tasks[index];
+      saveDetails($scope.room.num,$scope.room);  
+    }
   }
   //remove task from todolist
   $scope.taskDone = function(index){
