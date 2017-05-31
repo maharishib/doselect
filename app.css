@@ -33,3 +33,11 @@ md-card{
 .md-button{
 	display: flex;
 }
+.editinput{
+	margin-top:0px;
+	margin-bottom:0px;
+}
+.task{
+	padding-top:5px;
+	padding-bottom:5px;
+}

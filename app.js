@@ -21,6 +21,10 @@ roomApp.config(function($stateProvider) {
  roomApp.controller('AppCtrl', AppCtrl);
  function EditCtrl($scope,$stateParams){
   $scope.room = loadDetails($stateParams.id);
+  $scope.tasks= new Array();
+  for(var ij=0;ij<$scope.room.todolist.length;ij++){
+    $scope.tasks[ij] = $scope.room.todolist[ij];
+  }
 //add task to specific room
   $scope.addTask = function(){
     var task = $scope.task;
@@ -29,6 +33,10 @@ roomApp.config(function($stateProvider) {
       $scope.room.todolist.push(task);
       saveDetails($scope.room.num,$scope.room);
     }
+  }
+  $scope.editTask = function(index){
+    $scope.room.todolist[index] = $scope.tasks[index];
+    saveDetails($scope.room.num,$scope.room);  
   }
   //remove task from todolist
   $scope.taskDone = function(index){
