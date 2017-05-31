@@ -19,7 +19,7 @@
 				<li ng-repeat="n in room.todolist track by $index" layout="column" class="task">
         <div ng-show="!show[$index]" layout="row" layout-align="center center"><span flex="90">{{n}}</span><span flex="10" layout-align="center end" layout="row"><i class="material-icons doneicon" ng-click="show[$index] = true" title="edit">edit</i><i title="done" class="material-icons doneicon" ng-click="taskDone($index)">done</i></span></div>
           <div layout="row" layout-align="center center" ng-show="show[$index]">
-           <md-input-container  class="editinput" flex="70">
+           <md-input-container  class="editinput" flex="60">
            <label>Task</label>
             <input type="text" ng-model="tasks[$index]" required flex="90">
           </md-input-container>
@@ -32,7 +32,7 @@
           </div>
           </md-card-content>
 		    <md-card-actions layout="row" layout-align="center center">
-          <md-input-container flex="70">
+          <md-input-container flex="60">
             <label>Task</label>
             <input type="text" ng-model="task" flex="90">
           </md-input-container>
