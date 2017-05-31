@@ -15,7 +15,7 @@ roomApp.config(function($stateProvider) {
 });
  roomApp.config(function($mdThemingProvider) {
   $mdThemingProvider.theme('default')
-    .accentPalette('blue');
+    .accentPalette('red');
 });
  roomApp.controller('EditCtrl',EditCtrl);
  roomApp.controller('AppCtrl', AppCtrl);
