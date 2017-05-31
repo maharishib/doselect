@@ -1,10 +1,38 @@
 .doneicon{
 	cursor:pointer;
-	color:#ddd;
+	color:rgba(63,81,181,0.7);
 }
 .doneicon:hover{
 	color:rgb(63,81,181);
 }
 .rbutton{
 	margin-right:10px !important;
+}
+.bgimage{
+	z-index:-1;
+	position: fixed;
+    top: 0px;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-position: center center !important;
+}
+#bgimage1{
+    background: url(images/corridor.jpg);
+}
+#bgimage2{
+    background: url(images/lobby.jpg);
+}
+body,#grid{
+	background:transparent;
+}
+#nav{
+	background-color: rgba(255,255,255,0.6) !important;
+}
+#nav:hover{
+	background-color: rgba(255,255,255,0.8) !important;
+}
+md-card{
+	background-color: rgba(255,255,255,0.6) !important;
 }

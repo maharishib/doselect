@@ -1,12 +1,11 @@
 <div class="layout-column" ng-controller="AppCtrl">
-
     <div flex="10" layout="row" layout-align="center center">
     	<md-button ng-click="addRoom()" class="md-primary md-raised">Add Room</md-button>
 	</div>
-	<md-content class="md-padding" layout="row" layout-wrap>
+	<md-content class="md-padding" layout="row" flex layout-wrap id="grid">
     <div flex-xs="100" flex-sm="50" flex-gt-sm="33" ng-repeat="i in rooms">
       
-      <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch>
+      <md-card md-theme-watch>
         <md-card-title>
           <md-card-title-text>
             <span class="md-headline">Room No. {{i.num}}</span>
@@ -31,8 +30,7 @@
       </md-card>
       <br />
     </div>
-      
-     
   </md-content>
-
+</div>
+<div id="bgimage1" class="bgimage">
 </div>

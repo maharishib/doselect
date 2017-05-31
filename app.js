@@ -37,7 +37,6 @@ roomApp.config(function($stateProvider) {
   }
  }
   function AppCtrl($scope) {
-  	$scope.currentNavItem = 'home';
   	var roomIndexs = roomIndex(); 
   	$scope.rooms = new Array();
     var roomnums =JSON.parse(localStorage.getItem('roomnums'));

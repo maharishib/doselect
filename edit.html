@@ -1,10 +1,12 @@
 <div class="layout-column" ng-controller="EditCtrl">
-
+<div flex="10" layout="row" layout-align="center center">
+      <md-button ng-href="#" class="md-primary md-raised">Back</md-button>
+  </div>
     
-	<md-content class="md-padding" layout="row" layout-wrap>
+	<md-content class="md-padding" layout="row" flex layout-wrap id="grid">
     <div flex-xs="100" flex-sm="50" flex-offset-sm="25" flex-gt-sm="33" flex-offset-gt-sm="33" >
       
-      <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch>
+      <md-card id="singlecard" md-theme-watch >
         <md-card-title>
           <md-card-title-text>
             <span class="md-headline">Room No. {{room.num}}</span>
@@ -38,4 +40,6 @@
      
   </md-content>
 
+</div>
+<div id="bgimage2" class="bgimage">
 </div>
