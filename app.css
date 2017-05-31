@@ -19,19 +19,13 @@
     background-position: center center !important;
 }
 #bgimage1{
-    background: url(images/corridor.jpg);
+    background: url(images/corridor-min.jpg);
 }
 #bgimage2{
-    background: url(images/lobby.jpg);
+    background: url(images/lobby-min.jpg);
 }
 body,#grid{
 	background:transparent;
-}
-#nav{
-	background-color: rgba(255,255,255,0.6) !important;
-}
-#nav:hover{
-	background-color: rgba(255,255,255,0.8) !important;
 }
 md-card{
 	background-color: rgba(255,255,255,0.6) !important;
