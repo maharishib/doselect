@@ -22,10 +22,10 @@ roomApp.config(function($stateProvider) {
  function EditCtrl($scope,$stateParams){
   $scope.room = loadDetails($stateParams.id);
   $scope.tasks= new Array();
-  $scope.show= new Array();
+  $scope.tasks = $scope.room.todolist; // to assign values to edit models
+  $scope.show = new Array();
   for(var ij=0;ij<$scope.room.todolist.length;ij++){
-    $scope.tasks[ij] = $scope.room.todolist[ij];//this is done so that task changes when someone clicks on edit task button
-    $scope.show[ij] = false;
+    $scope.show[ij]=false;
   }
 //add task to specific room
   $scope.addTask = function(){
@@ -50,7 +50,7 @@ roomApp.config(function($stateProvider) {
     saveDetails($scope.room.num,$scope.room);
   }
  }
-  function AppCtrl($scope) {
+  function AppCtrl($scope,$mdDialog) {
   	var roomIndexs = roomIndex(); 
   	$scope.rooms = new Array();
     var roomnums =JSON.parse(localStorage.getItem('roomnums'));
@@ -59,7 +59,7 @@ roomApp.config(function($stateProvider) {
   	for(var i=0;i<roomnums.length;i++)
   		$scope.rooms.push(loadDetails(roomnums[i]));
     //creata a new room object, increment roomIndexs
-  	$scope.addRoom = function(){
+    $scope.addRoom = function(){
     	var num = roomIndex();
     	var roomnum = 1;
       var roomnums =JSON.parse(localStorage.getItem('roomnums'));
@@ -68,7 +68,6 @@ roomApp.config(function($stateProvider) {
     	var myroom = new Object();
     	myroom.num = roomnum;
     	myroom.todolist=new Array();
-    	myroom.totaltask=0;
     	localStorage.setItem('roomIndex',roomnum);
       addRoomNum(roomnum);
     	saveDetails(roomnum,myroom);
