@@ -43,7 +43,7 @@ md-card{
 }
 #nav{
 	background-color: rgba(40,40,40,0.3);
-	color: rgb(41, 65, 197);
+	color: white;
 	font-size:24px;
 }
 #nav:hover{

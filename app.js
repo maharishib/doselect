@@ -62,7 +62,8 @@ roomApp.config(function($stateProvider) {
   	$scope.addRoom = function(){
     	var num = roomIndex();
     	var roomnum = 1;
-    	if(!(num==null || num==0))
+      var roomnums =JSON.parse(localStorage.getItem('roomnums'));
+    	if(!(num==null || num==0 || roomnums.length==0))//check if localstorage is clear, also check if all the rooms are deleted
     		roomnum = parseInt(num)+1;
     	var myroom = new Object();
     	myroom.num = roomnum;
