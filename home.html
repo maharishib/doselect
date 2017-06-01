@@ -1,8 +1,8 @@
-<div class="layout-column" ng-controller="AppCtrl" flex>
-    <div layout="row" layout-align="center end">
+<div class="layout-column md-padding" ng-controller="AppCtrl" flex>
+    <div layout="row" layout-align="center center">
     	<md-button ng-click="addRoom()" class="md-primary md-raised"><i class="material-icons">add</i>Add Room</md-button>
 	</div>
-	<md-content class="md-padding" layout="row" flex layout-wrap id="grid">
+	<md-content class="md-padding" layout="row" flex layout-wrap id="grid" ng-show="rooms.length>0">
     <div flex-xs="100" flex-sm="50" flex-gt-sm="33" ng-repeat="i in rooms">
       
       <md-card md-theme-watch>
@@ -14,12 +14,12 @@
         </md-card-title>
         <md-card-content layout="row" layout-align="space-between">
           <div class="md-media-xl card-media">
-          <ul ng-show="i.todolist.length>0">
-				<li ng-repeat="n in i.todolist track by $index">
-					{{n}}
-				</li>		
-			</ul>
-			<p ng-show="i.todolist.length==0">No task in todo list.</p>
+            <ul ng-show="i.todolist.length>0">
+				      <li ng-repeat="n in i.todolist track by $index">
+					     {{n}}
+				      </li>		
+			       </ul>
+			         <p ng-show="i.todolist.length==0">No task in todo list.</p>
           </div>
           
         </md-card-content>

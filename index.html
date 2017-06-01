@@ -7,10 +7,13 @@
   <link rel="stylesheet" href="app.css">
 </head>
 <body ng-app="RoomApp"  ng-cloak>
-<div class="layout-column">
-  <div flex="5"></div>
-  <ui-view></ui-view>
-  <div flex="5"></div>
+  <div class="layout-column" flex>
+    <md-content class="md-padding" layout="row" layout-align="center center" flex layout-wrap id="nav">
+      <p class="nav-link">MyRooms</p>
+    </md-content>
+  </div> 
+  <div class="layout-column" flex>
+    <ui-view></ui-view>
   </div>
 
 <!-- inclusion of js files -->
