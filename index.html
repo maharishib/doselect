@@ -6,9 +6,12 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="app.css">
 </head>
-<body ng-app="RoomApp" ng-cloak>
-  
+<body ng-app="RoomApp"  ng-cloak>
+<div class="layout-column">
+  <div flex="5"></div>
   <ui-view></ui-view>
+  <div flex="5"></div>
+  </div>
 
 <!-- inclusion of js files -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>

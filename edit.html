@@ -1,5 +1,5 @@
 <div class="layout-column" ng-controller="EditCtrl">
-<div flex="10" layout="row" layout-align="center center">
+<div layout="row" layout-align="center end">
       <md-button ng-href="#" class="md-primary md-raised"><i class="material-icons">reply</i>Back</md-button>
   </div>
     
@@ -17,13 +17,13 @@
           <div class="md-media-xl card-media"  flex="100">
           	<ul ng-show="room.todolist.length>0" style="padding:0px;">
 				<li ng-repeat="n in room.todolist track by $index" layout="column" class="task">
-        <div ng-show="!show[$index]" layout="row" layout-align="center center"><span flex="90">{{n}}</span><span flex="10" layout-align="center end" layout="row"><i class="material-icons doneicon" ng-click="show[$index] = true" title="edit">edit</i><i title="done" class="material-icons doneicon" ng-click="taskDone($index)">done</i></span></div>
+        <div ng-show="!show[$index]" layout="row" layout-align="center center"><span flex="90">{{n}}</span><span flex="10" layout-align="center end" layout="row"><i class="material-icons doneicon" ng-click="show[$index] = true" title="edit">edit</i><i title="remove" class="material-icons doneicon" ng-click="taskDone($index)">close</i></span></div>
           <div layout="row" layout-align="center center" ng-show="show[$index]">
            <md-input-container  class="editinput" flex="60">
            <label>Task</label>
             <input type="text" ng-model="tasks[$index]" required flex="90">
           </md-input-container>
-          <md-input-container class="editinput" flex>
+          <md-input-container class="editinput">
             <md-button class="md-primary md-raised" ng-click="editTask($index);"><i class="material-icons">edit</i>EDIT TASK</md-button>
           </md-input-container></div>
 				</li>		
@@ -36,7 +36,7 @@
             <label>Task</label>
             <input type="text" ng-model="task" flex="90">
           </md-input-container>
-          <md-input-container flex>
+          <md-input-container>
             <md-button class="md-primary md-raised" ng-click="addTask()"><i class="material-icons">add</i>ADD TASK</md-button>
           </md-input-container>
         </md-card-actions>
